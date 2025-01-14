@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   frontend:
@@ -11,6 +11,7 @@ services:
       - backend
     environment:
       - VITE_API_URL=http://backend:8000
+    image: lilnikky/itmo_practice_frontend
 
   backend:
     build:
@@ -18,3 +19,4 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    image: lilnikky/itmo_practice_backend
