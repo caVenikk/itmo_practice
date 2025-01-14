@@ -66,10 +66,6 @@
    docker-compose up --build
    ```
 
-3. **Доступ к приложению**
-   - [Фронтенд](https://lilnikky.ru/)
-   - [API бэкенда (Swagger)](https://lilnikky.ru/api/docs)
-
 ### Развертывание из Docker Hub
 
 ```bash
