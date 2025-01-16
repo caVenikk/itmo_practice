@@ -2,11 +2,10 @@
     <div class="semantic-graph">
         <VueFlow
             v-model="elements"
-            :default-viewport="{ zoom: 1.5 }"
+            :default-viewport="{ zoom: 1 / 3, x: 170, y: 360 }"
             :min-zoom="0.2"
             :max-zoom="4"
             class="semantic-graph__flow"
-            fit-view-on-init
         >
             <template #node-custom="nodeProps">
                 <div
@@ -61,24 +60,15 @@
 
     const categoryMap: Record<string, string> = {
         Основное: "main",
-        Язык: "language",
-        "Особенность языка": "language-feature",
-        "Парадигма программирования": "programming-paradigm",
-        "Инструмент разработки": "development-tool",
-        Фреймворк: "framework",
-        Интерфейс: "interface",
-        Стандарт: "standard",
-        "База данных": "database",
-        Архитектура: "architecture",
-        Документация: "documentation",
-        "Шаблон проектирования": "design-pattern",
+        Методология: "methodology",
+        Система: "system",
+        Типизация: "typing",
+        Интерфейсы: "interfaces",
+        Безопасность: "security",
+        Инструменты: "tools",
+        Стандарты: "standards",
         Оптимизация: "optimization",
-        "Качество системы": "system-quality",
-        "Метрика системы": "system-metric",
-        Процесс: "process",
-        Конфигурация: "configuration",
-        Тестирование: "testing",
-        Сервис: "service",
+        Фреймворки: "frameworks",
     };
 
     const getCategoryKey = (category: string): string => {
@@ -115,24 +105,15 @@
 <style lang="scss" scoped>
     $colors: (
         main: #e3f2fd,
-        language: #f3e5f5,
-        language-feature: #e8f5e9,
-        programming-paradigm: #fff3e0,
-        development-tool: #f1f8e9,
-        framework: #e0f2f1,
-        interface: #fce4ec,
-        standard: #f3e5f5,
-        database: #e8eaf6,
-        architecture: #e0f7fa,
-        documentation: #fff3e0,
-        design-pattern: #f1f8e9,
+        methodology: #f3e5f5,
+        system: #e8f5e9,
+        typing: #fff3e0,
+        interfaces: #fce4ec,
+        security: #e0f7fa,
+        tools: #f1f8e9,
+        standards: #e8eaf6,
         optimization: #e1f5fe,
-        system-quality: #f3e5f5,
-        system-metric: #e8f5e9,
-        process: #fff3e0,
-        configuration: #e0f2f1,
-        testing: #fce4ec,
-        service: #e8eaf6,
+        frameworks: #e0f2f1,
     );
 
     .semantic-graph {

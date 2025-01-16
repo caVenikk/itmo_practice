@@ -1,16 +1,19 @@
 <template>
     <div class="glossary-list">
-        <GlossaryCard v-for="item in items" :key="item.term" :term="item.term" :definition="item.definition" />
+        <GlossaryCard
+            v-for="item in items"
+            :key="item.term"
+            :term="item.term"
+            :definition="item.definition"
+            :source="item.source"
+            :core="item.core"
+        />
     </div>
 </template>
 
 <script setup lang="ts">
     import GlossaryCard from "./GlossaryCard.vue";
-
-    interface GlossaryItem {
-        term: string;
-        definition: string;
-    }
+    import { type GlossaryItem } from "@/types/glossary";
 
     defineProps<{
         items: GlossaryItem[];

@@ -1,15 +1,23 @@
 <template>
-    <div class="glossary-card">
+    <div class="glossary-card" :class="{ 'core-term': core }" @click="navigateToSource">
         <h3 class="glossary-card__title">{{ term }}</h3>
         <p class="glossary-card__definition">{{ definition }}</p>
     </div>
 </template>
 
 <script setup lang="ts">
-    defineProps<{
+    const props = defineProps<{
         term: string;
         definition: string;
+        source: string | null;
+        core: boolean | null;
     }>();
+
+    const navigateToSource = () => {
+        if (props.source) {
+            window.open(props.source, "_blank");
+        }
+    };
 </script>
 
 <style scoped lang="scss">
@@ -28,6 +36,11 @@
         position: relative;
         overflow: hidden;
         cursor: pointer;
+
+        &.core-term {
+            border-color: #ffc2c2;
+            background-color: #fff8f8;
+        }
 
         &:hover {
             transform: translateY(-4px);
