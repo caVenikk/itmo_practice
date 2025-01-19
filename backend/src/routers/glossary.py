@@ -26,7 +26,7 @@ async def get_term(term: str):
     raise HTTPException(status_code=404, detail="Term not found")
 
 
-@router.get("/search/{query}", response_model=List[GlossaryTerm])
+@router.get("/search", response_model=List[GlossaryTerm])
 async def search_terms(query: str):
     """Search terms by query string"""
     query = query.lower()
@@ -47,10 +47,9 @@ async def download_glossary(format: Literal["json", "csv"] = "json"):
             json.dump(GLOSSARY_DATA, temp_file, ensure_ascii=False, indent=2)
             temp_file_path = temp_file.name
         return FileResponse(temp_file_path, media_type="application/json", filename="glossary.json")
-
     elif format == "csv":
         with NamedTemporaryFile(mode="w", delete=False, suffix=".csv", encoding="utf-8", newline="") as temp_file:
-            writer = csv.DictWriter(temp_file, fieldnames=["term", "definition"])
+            writer = csv.DictWriter(temp_file, fieldnames=["id", "term", "definition", "source", "core"])
             writer.writeheader()
             writer.writerows(GLOSSARY_DATA)
             temp_file_path = temp_file.name

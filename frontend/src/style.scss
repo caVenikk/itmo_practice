@@ -182,3 +182,20 @@ button {
 .fade-in {
     animation: fadeIn 0.3s ease-in-out;
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba($color-text-primary, 0.1);
+    border-radius: 4px;
+
+    &:hover {
+        background: rgba($color-text-primary, 0.2);
+    }
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}

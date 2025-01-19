@@ -2,7 +2,7 @@
     <div class="semantic-graph">
         <VueFlow
             v-model="elements"
-            :default-viewport="{ zoom: 1 / 3, x: 170, y: 360 }"
+            :default-viewport="{ zoom: 1 / 3, x: 420, y: 400 }"
             :min-zoom="0.2"
             :max-zoom="4"
             class="semantic-graph__flow"
@@ -118,7 +118,7 @@
 
     .semantic-graph {
         width: 100%;
-        height: 800px;
+        height: 91vh;
         background: #f8f9fa;
 
         &__flow {

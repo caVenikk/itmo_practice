@@ -8,7 +8,7 @@ export const API_PATHS = {
         BASE: "glossary/",
         GET_BY_TERM: (term: string) => `glossary/${term}`,
         SEARCH: (query: string) => `glossary/search/${query}`,
-        DOWNLOAD: (format: "json" | "csv") => `glossary/download/${format}`,
+        DOWNLOAD: (format: "json" | "csv") => `glossary/download?format=${format}`,
     },
     SEMANTIC_GRAPH: {
         BASE: "semantic-graph/",

@@ -34,7 +34,7 @@ async def get_edges() -> List[Dict]:
     return SEMANTIC_GRAPH["edges"]
 
 
-@router.get("/node/{node_id}")
+@router.get("/nodes/{node_id}")
 async def get_node(node_id: int) -> Dict:
     """
     Получить конкретный узел по его ID.
@@ -45,18 +45,7 @@ async def get_node(node_id: int) -> Dict:
     raise HTTPException(status_code=404, detail="Node not found")
 
 
-@router.get("/node/term/{term}")
-async def get_node_by_term(term: str) -> Dict:
-    """
-    Получить узел по его термину.
-    """
-    for node in SEMANTIC_GRAPH["nodes"]:
-        if node["term"].lower() == term.lower():
-            return node
-    raise HTTPException(status_code=404, detail="Node not found")
-
-
-@router.get("/node/{node_id}/connections")
+@router.get("/nodes/{node_id}/connections")
 async def get_node_connections(node_id: int) -> Dict[str, List[Dict]]:
     """
     Получить все связи конкретного узла (входящие и исходящие).

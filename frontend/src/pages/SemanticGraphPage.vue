@@ -1,6 +1,5 @@
 <template>
     <div class="semantic-graph-page">
-        <h1 class="semantic-graph-page__title">Семантический граф</h1>
         <Spinner v-if="loading" class="semantic-graph-page__loading" />
         <div v-else-if="error" class="semantic-graph-page__error">
             {{ error }}
@@ -25,16 +24,6 @@
 </script>
 
 <style scoped>
-    .semantic-graph-page {
-        padding: 20px;
-    }
-
-    .semantic-graph-page__title {
-        margin-bottom: 20px;
-        font-size: 24px;
-        font-weight: bold;
-    }
-
     .semantic-graph-page__loading {
         display: flex;
         justify-content: center;
